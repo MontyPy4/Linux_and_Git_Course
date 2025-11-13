@@ -1,0 +1,83 @@
+Зашли на сервер
+
+1.Переход в свою папку:
+cd /opt/010825-ptm/daryna
+
+mkdir dir1 dir2
+pwd
+2.Переход в первую папку:
+cd dir1
+
+3.Команда для создания 100 случайных файлов:
+
+for i in {1..100}; do
+	touch "$RANDOM"; 
+done
+
+4.Смотрим что файлы появились:
+
+ls
+
+В результате, увидем список случайных чисел - это и есть имена файлов.
+
+5.Скрипт для переноса чётных файлов во вторую директорию:
+
+cd /opt/010825-ptm/daryna
+vi move_even.sh
+
+
+Вставляем в файл код:
+
+#!/bin/bash
+
+src="/opt/010825-ptm/daryna/dir1"
+dst="/opt/010825-ptm/daryna/dir2"
+
+for file in "$src"/*; do
+    name=$(basename "$file")
+    # Проверяем, что имя состоит только из цифр
+    if [[ "$name" =~ ^[0-9]+$ ]]; then
+        if [ $(($name % 2)) -eq 0 ]; then
+            mv "$file" "$dst"/
+        fi
+    fi
+done
+
+
+Сохраняем и выходим (Ctrl + O, Enter, Ctrl + X).
+
+
+5.Делаем скрипт исполняемым":
+
+chmod u+x move_even.sh
+
+6.Запускаем скрипт
+
+./move_even.sh
+
+
+history:
+ 996  exit
+  997  cd /opt/010825-ptm/daryna
+  998  mkdir dir1 dir2
+  999  pwd
+ 1000  for i in {1..100}; do touch "$RANDOM"; done
+ 1001  ls
+ 1002  cd /opt/010825-ptm/daryna
+ 1003  nano move_even.sh
+ 1004  chmod u+x move_even.sh
+ 1005  ./move_even.sh
+ 1006  nano move_even.sh
+ 1007  ./move_even.sh
+ 1008  ls dir1
+ 1009  ls dir2
+ 1010  ls -l /opt/010825-ptm/daryna/dir1
+ 1011  cd /opt/010825-ptm/daryna/dir1
+ 1012  for i in {1..100}; do touch "$RANDOM"; done
+ 1013  ls
+ 1014  cd /opt/010825-ptm/daryna
+ 1015  ./move_even.sh
+ 1016  ls dir1
+ 1017  ls dir2
+ 1018  history
+[ec2-user@ip-10-0-42-153 daryna]$

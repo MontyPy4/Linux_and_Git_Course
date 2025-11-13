@@ -1,0 +1,16 @@
+   0 date +"%D%T-%d-%m" >> homew.txt
+   1 cat homew.txt
+   2 df -h / >>homew.txt
+   3 cat home.txt
+   4 cat homew.txt
+   5 history | tail -n 3 >> homew.txt
+   6 cat homew.txt
+   7 grep cron /etc/passwd >> homew.tx
+   8 cat homew.txt
+   9 grep cron /etc/passwd >> homew.txt
+  10 cat homew.txt
+  11 grep root /etc/group | wc -l >> homew.txt
+  12 cat homew.txt
+  13 vi homew.txt
+  14 ps aux | grep vi
+  15 history > /tmp/history.txt && export_file /tmp/history.txt

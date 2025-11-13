@@ -1,0 +1,38 @@
+df -h | head -3
+df -h | head -3 > /tmp/file.txt
+chmod g+wx,o-rwx /tmp/file.txt
+ls -l /tmp/file.txt
+
+С начала при помощи текстового редактора(vi/nano) создаем файл сценария, переменные.
+Пишем все необходимые команды. Выходим с сохранением и только потом даем права и возможность запускаться.
+
+localhost:~# export USER="DARYNA"   #создаем переменную в консоле
+env                                 # проверяем создалась ли переменная
+
+Заходим в текстовый редактор создавай файл:
+vi /tmp/myfirstbashscript.sh
+#!/bin/bash                         #начало написания скрипта в vi
+                                    #зеленый файл - файл который                                     исполняется
+pwd                                 #показывает текущую директорию
+                                    вызываем содержимое команды как                                     переменную
+
+
+echo "Your folder is:" $(pwd)       #ваша папка - вычитай из команды pwd                                       его значение
+
+Esc :wq                             #Сохраняем и выходим из vi
+
+chmod 744 /tmp/myfirstbashscript.sh  # даем права: 744 - все права себе и                                       остальным 4
+                                     #всегда пишется три цыфры
+
+
+РЕЗУЛЬТАТ:
+localhost:~# chmod 744 /tmp/myfirstbashscript.sh
+localhost:~# ls -l /tmp/myfirstbashscript.sh
+-rwxr--r--    1 root     root            70 Sep 10 22:20 /tmp/myfirstbashscript.
+sh
+localhost:~#  /tmp/myfirstbashscript.sh
+Your folder is: /root
+Your name is: DARYNA
+
+cat /tmp/myfirstbashscript.sh >> /tmp/file.txt  #дозапись в файл
+

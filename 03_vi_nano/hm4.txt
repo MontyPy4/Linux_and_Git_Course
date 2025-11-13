@@ -1,0 +1,8 @@
+
+date +"%D%T-%d-%m" >> homew.txt
+df -h / >> homew.txt
+cat homew.txt
+history | tail -n 3 >> homew.txt
+cat homew.txt
+grep cron /etc/passwd >> homew.tx
+grep root /etc/group | wc -l >> homew.txt
